@@ -14,7 +14,7 @@ public class ReasonForTravelPage extends PageObject {
 
 
     public void selectReasonForVisit(String reason){
-        String selector = String.join("","div[value='", reason.toLowerCase(), "']");
+        String selector = String.join("","input[value='", reason.toLowerCase(), "']");
         reasonToSelect = find(By.cssSelector(selector));
         clickOn(reasonToSelect);
     }

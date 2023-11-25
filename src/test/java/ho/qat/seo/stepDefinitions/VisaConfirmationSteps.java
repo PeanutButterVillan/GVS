@@ -12,9 +12,9 @@ public class VisaConfirmationSteps {
     SelectNationalityPage selectNationalityPage;
     ReasonForTravelPage reasonForTravelPage;
     DurationOfStayPage durationOfStayPage;
+    ResultPage resultPage;
 
-
-    @Given("I am on the Check UK visa website")
+    @Given("^I am on the Check UK visa website$")
     public void i_am_on_the_Check_UK_visa_website() {
         startPage.open();
     }
@@ -27,6 +27,7 @@ public class VisaConfirmationSteps {
     @When("I select a nationality of {string}")
     public void iSelectANationalityOfAustralia(String nationality) {
         selectNationalityPage.selectNationality(nationality);
+        selectNationalityPage.clickNextStepButton();
     }
 
     @And("I select reason {string}")
