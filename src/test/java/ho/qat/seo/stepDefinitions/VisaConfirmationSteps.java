@@ -10,6 +10,9 @@ public class VisaConfirmationSteps {
 
     StartPage startPage;
     SelectNationalityPage selectNationalityPage;
+
+    LongerSixMonthsPage longerSixMonthsPage;
+
     ReasonForTravelPage reasonForTravelPage;
     DurationOfStayPage durationOfStayPage;
     ResultPage resultPage;
@@ -25,7 +28,7 @@ public class VisaConfirmationSteps {
     }
 
     @When("I select a nationality of {string}")
-    public void iSelectANationalityOfAustralia(String nationality) {
+    public void iSelectANationality(String nationality) {
         selectNationalityPage.selectNationality(nationality);
         selectNationalityPage.clickNextStepButton();
     }
@@ -36,9 +39,20 @@ public class VisaConfirmationSteps {
         reasonForTravelPage.clickNextStepButton();
     }
 
+    @And("I select job type {string}")
+    public void iSelectTypeHealth(String type) {
+        longerSixMonthsPage.selectJobType(type);
+        longerSixMonthsPage.clickNextStepButton();
+    }
+
     @Then("I will be informed {string}")
     public void confirm_visa_result(String resultText) {
         resultPage.confirmResultMessage(resultText);
+    }
+
+    @Then("I will be informed as an Article 10 or 20 holder to apply for a free {string}")
+    public void confirm_permit_result(String resultText) {
+        resultPage.confirmPermitMessage(resultText);
     }
 
     @And("I state I am intending to stay for {string} than 6 months")

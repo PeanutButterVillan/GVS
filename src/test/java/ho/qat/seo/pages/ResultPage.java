@@ -10,13 +10,25 @@ public class ResultPage extends PageObject {
 
     @FindBy(xpath = "//*[@id=\"result-info\"]/div[2]/div/h2")
     WebElementFacade resultMessage;
-    //*[@id="result-info"]/div[2]/div/h2
-    //*[@id="result-info"]/div[2]/h2
+
+    @FindBy(linkText = "family permit")
+    WebElementFacade resultPermit;
+
+
+
     private String getResultMessage(){
        return resultMessage.getText();
     }
 
+    private String getPermitMessage(){
+        return resultPermit.getText();
+    }
+
     public void confirmResultMessage(String expectedMessage){
         Assert.assertTrue(getResultMessage().equalsIgnoreCase(expectedMessage));
+    }
+
+    public void confirmPermitMessage(String expectedMessage){
+        Assert.assertTrue(getPermitMessage().equalsIgnoreCase(expectedMessage));
     }
 }

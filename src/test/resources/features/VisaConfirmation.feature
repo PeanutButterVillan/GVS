@@ -14,6 +14,10 @@ Feature: Visa checks
     When I select a nationality of 'Chile'
     And I select reason 'Work'
     And I state I am intending to stay for 'more' than 6 months
-    Then I will be informed 'You’ll need a visa to join your family or partner in the UK'
+    And I select job type 'Health'
+    Then I will be informed 'You need a visa to work in health and care'
 
-  Scenario: A Columbian national coming to the UK to join a partner for a long stay. They do have an Article 10 or 20 card.
+  Scenario: A Colombian national coming to the UK to join a partner for a long stay. They do have an Article 10 or 20 card.
+    When I select a nationality of 'Colombia'
+    And I select reason 'Family'
+    Then I will be informed as an Article 10 or 20 holder to apply for a free 'family permit'
