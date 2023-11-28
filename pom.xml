@@ -81,7 +81,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.plugin.version}</version>
                 <configuration>
-                    <skip>true</skip>
+                    <skip>false</skip>
+                    <parallel>classesAndMethods</parallel>
+                    <threadCount>3</threadCount>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
             </plugin>
             <plugin>
